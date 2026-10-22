@@ -1,0 +1,1643 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dipesh Kumar | Software Developer & AI/ML Engineer</title>
+  
+  <!-- SEO Best Practices -->
+  <meta name="description" content="Portfolio of Dipesh Kumar, Final-year B.Tech CSE student at Babu Banarasi Das University. Specializing in Software Development, Machine Learning, and Generative AI. Explore projects: LegalDoc AI, NovaGen AI, SmartCart, and AI Personal Assistant." />
+  <meta name="keywords" content="Dipesh Kumar, Software Developer, AI/ML Engineer, Machine Learning, Generative AI, Python, React, Groq API, Streamlit, Scikit-learn, Babu Banarasi Das University, Lucknow" />
+  <meta name="author" content="Dipesh Kumar" />
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Dipesh Kumar | Software Developer & AI/ML Engineer" />
+  <meta property="og:description" content="Final-year B.Tech CSE student specializing in Software Development, Machine Learning, and Generative AI. Explore live deployed applications." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="en_US" />
+  
+  <!-- Custom Favicon -->
+  <link rel="icon" type="image/svg+xml" href="./public/favicon.svg" />
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  
+  <!-- Tailwind CSS via CDN for instant standalone rendering -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            navy: {
+              950: '#070b14',
+              900: '#0b101f',
+              850: '#0e1628',
+              800: '#131b2e',
+            },
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+        },
+      },
+    };
+  </script>
+
+  <!-- React 18 & Babel Standalone -->
+  <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <style>
+    :root {
+      --bg-primary: #070b14;
+      color-scheme: dark;
+    }
+    body {
+      background-color: #070b14;
+      color: #f3f4f6;
+      font-family: 'Inter', system-ui, sans-serif;
+      overflow-x: hidden;
+    }
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #080c16;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #1e293b;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #334155;
+    }
+    @keyframes pulseSlow {
+      0%, 100% { opacity: 0.2; transform: scale(1); }
+      50% { opacity: 0.35; transform: scale(1.05); }
+    }
+    .animate-pulse-slow {
+      animation: pulseSlow 8s ease-in-out infinite;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body class="bg-[#070b14] text-gray-100 antialiased selection:bg-blue-600 selection:text-white">
+  <div id="root">
+    <!-- Fallback while script loads -->
+    <div class="min-h-screen flex items-center justify-center bg-[#070b14] text-gray-400">
+      <div class="flex items-center gap-3">
+        <div class="w-4 h-4 rounded-full border-2 border-blue-500 border-t-transparent animate-spin"></div>
+        <span class="text-sm font-medium">Loading Dipesh Kumar's Portfolio...</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- React Application Script -->
+  <script type="text/babel">
+    const { useState, useEffect } = React;
+
+    // --- Centralized Configuration Data ---
+    const portfolioData = {
+      personal: {
+        name: "Dipesh Kumar",
+        title: "Software Developer | AI/ML Engineer",
+        location: "Lucknow, Uttar Pradesh, India",
+        email: "dipesh11283@gmail.com",
+        phone: "+91 9334752721",
+        educationSummary: "B.Tech in Computer Science Engineering (Pursuing), Babu Banarasi Das University, Lucknow (CGPA: 8.79 till 3rd Year)",
+        summary: "Final-year B.Tech CSE student with strong skills in Java, Python, DSA, Software Development, and Machine Learning. Hands-on experience in building software and AI-powered applications. Seeking opportunities in Software Development and AI/ML to apply technical skills and build innovative solutions.",
+        capabilities: [
+          { label: "Software Development", icon: "💻" },
+          { label: "AI / Machine Learning", icon: "🧠" },
+          { label: "Generative AI", icon: "✨" },
+        ],
+        social: {
+          github: "https://github.com",
+          linkedin: "https://linkedin.com",
+          leetcode: "https://leetcode.com",
+        },
+        resumePath: "../../brain/cd32b274-fa93-479a-b523-02ffc1bcb5f4/.user_uploaded/media_1792587774065.pdf",
+        resumeFallback: "./resume.pdf",
+      },
+
+      projects: [
+        {
+          id: "legaldoc-ai",
+          title: "LegalDoc AI",
+          category: "AI-Powered Legal Document Platform",
+          tagline: "Full-stack AI platform for generating, analyzing, and simplifying legal contracts and documents.",
+          liveDemo: "https://byteblaze-harshmishra.onrender.com/",
+          description: "A full-stack AI application for generating, analyzing, and simplifying legal documents. Built to demystify complex legal language with instant plain-text interpretations, automated compliance audits, and bilingual support.",
+          keyFeatures: [
+            "Legal document and contract generation",
+            "Automated compliance checking & risk scoring",
+            "Legal clause explanation and plain-text simplification",
+            "AI legal conversational assistant powered by Groq API",
+            "Document upload and PDF export workflow",
+            "English and Hindi multilingual support",
+            "Sub-second LLM inference via Groq API integration",
+          ],
+          techTags: ["Generative AI", "Groq API", "Full-Stack Development", "Document Processing", "NLP"],
+          previewType: "legal",
+          accentGradient: "from-blue-600/20 via-indigo-600/10 to-transparent",
+          badgeClass: "bg-blue-500/10 text-blue-400 border-blue-500/20",
+          metric: "Groq LPU Acceleration",
+        },
+        {
+          id: "novagen-ai",
+          title: "NovaGen AI",
+          category: "Health Status Prediction System",
+          tagline: "Supervised machine learning application predicting health status using medical and lifestyle parameters.",
+          liveDemo: "https://novagenhealth.streamlit.app/",
+          description: "A supervised machine learning application that predicts health status using physiological, lifestyle, and medical features. Evaluated multiple classifiers using standard scaler preprocessing, with Random Forest delivering verified 93.77% accuracy and 95.88% recall.",
+          keyFeatures: [
+            "Implemented Logistic Regression, KNN, Random Forest, & Gradient Boosting",
+            "Developed a Soft Voting Classifier combining ensemble models",
+            "StandardScaler feature scaling pipeline with medical validation",
+            "Evaluated using Accuracy, Precision, Recall, and F1-Score",
+            "Random Forest verified results: 93.77% Accuracy and 95.88% Recall",
+            "Interactive Streamlit web deployment with real-time risk classification",
+          ],
+          techTags: ["Python", "Scikit-learn", "Pandas", "NumPy", "Machine Learning", "Streamlit"],
+          previewType: "health",
+          accentGradient: "from-emerald-600/20 via-teal-600/10 to-transparent",
+          badgeClass: "bg-emerald-500/10 text-emerald-400 border-emerald-500/20",
+          metric: "93.77% Acc · 95.88% Recall",
+          disclaimer: "Machine learning prediction project; not a clinically validated diagnostic tool.",
+        },
+        {
+          id: "smartcart",
+          title: "SmartCart",
+          category: "Customer Segmentation System",
+          tagline: "Unsupervised machine learning system grouping customer cohorts via K-Means and 3D PCA.",
+          liveDemo: "https://smartcartcustomers.streamlit.app/",
+          description: "A customer segmentation system that identifies customer groups based on income and spending behavior. Employs K-Means and Agglomerative clustering with 3D Principal Component Analysis for clear cohort visualization.",
+          keyFeatures: [
+            "K-Means and Agglomerative clustering implementations",
+            "StandardScaler normalization & Principal Component Analysis (PCA)",
+            "Elbow Method / WCSS and Silhouette Score optimization",
+            "Interactive Streamlit dashboard with 3D PCA visualization",
+            "Actionable customer segment insights (High-Value, Budget, Target)",
+            "Real-time cluster classification for newly entered customer records",
+          ],
+          techTags: ["Python", "Machine Learning", "Clustering", "Scikit-learn", "Pandas", "NumPy", "Streamlit"],
+          previewType: "clustering",
+          accentGradient: "from-purple-600/20 via-pink-600/10 to-transparent",
+          badgeClass: "bg-purple-500/10 text-purple-400 border-purple-500/20",
+          metric: "Optimal K=3 · 3D PCA",
+        },
+        {
+          id: "ai-assistant",
+          title: "AI Personal Assistant",
+          category: "Generative AI | Full-Stack Web Application",
+          tagline: "Dynamic Flask & Groq API web application for instantaneous answers and 2–3 sentence email summaries.",
+          liveDemo: "https://ai-personal-assistant-37iv.onrender.com",
+          description: "An AI-powered web application built using Python, Flask, and Groq API that provides instant answers and summarizes lengthy emails into concise, meaningful 2–3 sentence summaries with zero page reloads.",
+          keyFeatures: [
+            "Interactive AI Chat Assistant with instant query responses",
+            "High-precision email summarization into 2–3 sentences",
+            "Dynamic AJAX communication without full-page reloads",
+            "Clean, user-friendly interface with input validation and error handling",
+            "Fast Groq API LLM integration",
+            "Production deployment on Render cloud",
+          ],
+          techTags: ["Python", "Flask", "Groq API", "LLMs", "HTML", "CSS", "JavaScript"],
+          previewType: "assistant",
+          accentGradient: "from-cyan-600/20 via-blue-600/10 to-transparent",
+          badgeClass: "bg-cyan-500/10 text-cyan-400 border-cyan-500/20",
+          metric: "2-3 Sentence Summaries",
+        },
+      ],
+
+      skills: [
+        {
+          category: "Programming Languages",
+          icon: "☕",
+          desc: "Algorithms, systems & ML programming",
+          items: [
+            { name: "Java", highlight: true, note: "DSA & OOP" },
+            { name: "Python", highlight: true, note: "ML & Backend" },
+            { name: "JavaScript", highlight: false, note: "ES6+ & Web" },
+          ],
+        },
+        {
+          category: "Core Concepts",
+          icon: "🧩",
+          desc: "Foundations in computer science",
+          items: [
+            { name: "Data Structures & Algorithms", highlight: true, note: "200+ LeetCode" },
+            { name: "Object-Oriented Programming", highlight: true, note: "Design Principles" },
+            { name: "REST APIs", highlight: false, note: "API Architecture" },
+          ],
+        },
+        {
+          category: "Web Development",
+          icon: "🌐",
+          desc: "Full-stack and frontend responsive web",
+          items: [
+            { name: "React.js", highlight: true, note: "Components" },
+            { name: "Node.js", highlight: false, note: "Services" },
+            { name: "HTML5 & CSS3", highlight: false, note: "Modern Layouts" },
+            { name: "RESTful Endpoints", highlight: false, note: "Client-Server" },
+          ],
+        },
+        {
+          category: "Machine Learning",
+          icon: "🤖",
+          desc: "Predictive modeling and statistical learning",
+          items: [
+            { name: "Supervised Learning", highlight: true, note: "Classification/Regression" },
+            { name: "Unsupervised Learning", highlight: true, note: "Clustering & PCA" },
+            { name: "Clustering Algorithms", highlight: false, note: "K-Means / Agglom" },
+            { name: "NLP & Tokenization", highlight: false, note: "Text Processing" },
+            { name: "Model Evaluation", highlight: true, note: "Acc, Recall, F1" },
+          ],
+        },
+        {
+          category: "Deep Learning & GenAI",
+          icon: "🧠",
+          desc: "Neural architectures & LLM tooling",
+          items: [
+            { name: "Neural Networks", highlight: false, note: "Architectures" },
+            { name: "Deep Learning Fundamentals", highlight: false, note: "Backprop & Loss" },
+            { name: "PyTorch", highlight: true, note: "Tensors & Models" },
+            { name: "Groq API & LLMs", highlight: true, note: "Fast Inference" },
+          ],
+        },
+        {
+          category: "Libraries & Frameworks",
+          icon: "📚",
+          desc: "Data science and interactive UI tools",
+          items: [
+            { name: "Scikit-learn", highlight: true, note: "Pipelines & Models" },
+            { name: "Pandas & NumPy", highlight: true, note: "Data Wrangling" },
+            { name: "Matplotlib & Seaborn", highlight: false, note: "Data Viz" },
+            { name: "Streamlit", highlight: true, note: "ML Web Apps" },
+          ],
+        },
+        {
+          category: "Databases",
+          icon: "🗄️",
+          desc: "Relational data management",
+          items: [
+            { name: "MySQL", highlight: true, note: "Relational Queries" },
+          ],
+        },
+        {
+          category: "Developer Tools",
+          icon: "🛠️",
+          desc: "Version control & AI workflow tools",
+          items: [
+            { name: "Git & GitHub", highlight: true, note: "Version Control" },
+            { name: "Google AI Studio", highlight: false, note: "Prompting" },
+            { name: "Claude & Antigravity", highlight: false, note: "AI Workflows" },
+          ],
+        },
+      ],
+
+      education: [
+        {
+          degree: "B.Tech in Computer Science Engineering (Pursuing)",
+          institution: "Babu Banarasi Das University",
+          location: "Lucknow, Uttar Pradesh",
+          period: "2023 – Present",
+          score: "CGPA: 8.79 till 3rd Year",
+          badge: "Current / Final Year",
+          details: "Specializing in software engineering, machine learning pipelines, algorithms, and full-stack application development.",
+        },
+        {
+          degree: "Intermediate (Class XII, CBSE)",
+          institution: "Divine Sainik School",
+          location: "Varanasi, Uttar Pradesh",
+          period: "2022",
+          score: "78.2%",
+          badge: "Senior Secondary",
+          details: "Focused on Physics, Chemistry, and Mathematics foundations.",
+        },
+        {
+          degree: "High School (Class X, CBSE)",
+          institution: "RNP Public School",
+          location: "Saran, Bihar",
+          period: "2020",
+          score: "74.8%",
+          badge: "Secondary School",
+          details: "Foundational academic training with distinction in Mathematics and Science.",
+        },
+      ],
+
+      training: [
+        {
+          title: "Project-Based Summer Training — Data Science & AI",
+          provider: "GRAStech",
+          duration: "90 Hours",
+          period: "June – August 2026",
+          description: "Comprehensive industrial training covering real-world data preprocessing, machine learning model building, Scikit-learn pipelines, and AI solution deployment.",
+          badge: "90-Hour Practical Training",
+        },
+        {
+          title: "Soft Skills Training Program",
+          provider: "Learnovate Enterprises",
+          duration: "Professional Development",
+          period: "Completed",
+          description: "Corporate communication, collaborative engineering, structured problem articulation, and presentation skills.",
+          badge: "Professional Skills",
+        },
+      ],
+
+      achievements: [
+        {
+          category: "Problem Solving",
+          title: "Solved 200+ DSA Problems on LeetCode",
+          desc: "Consistent practice demonstrating mastery of algorithmic complexity, data structures, and optimal coding patterns in Java.",
+          icon: "🏆",
+          badge: "200+ Solved",
+        },
+        {
+          category: "Leadership",
+          title: "Assistant Student Coordinator — IBM Club",
+          desc: "Facilitated technical workshops, peer coding bootcamps, and developer activities at Babu Banarasi Das University, Lucknow.",
+          icon: "👥",
+          badge: "IBM Club BBDU",
+        },
+        {
+          category: "Workshops",
+          title: "AI Workshops: Google Developer Group & Be10x",
+          desc: "Attended GDG Lucknow AI Workshop and Be10x Generative AI Tools training exploring state-of-the-art LLM capabilities.",
+          icon: "🎯",
+          badge: "GDG Lucknow & Be10x",
+        },
+      ],
+    };
+
+    // --- Component: Custom Project Mockups ---
+    function ProjectPreviewMockup({ type }) {
+      const [lang, setLang] = useState('en');
+
+      if (type === 'legal') {
+        return (
+          <div className="w-full bg-[#0a0f1d] rounded-xl border border-blue-500/20 overflow-hidden text-xs font-sans select-none shadow-xl">
+            <div className="bg-[#0f172a] px-3 py-2 border-b border-white/5 flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <div className="flex gap-1.5">
+                  <span className="w-2.5 h-2.5 rounded-full bg-red-500/80 inline-block"></span>
+                  <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/80 inline-block"></span>
+                  <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/80 inline-block"></span>
+                </div>
+                <span className="text-gray-400 font-medium ml-2 flex items-center gap-1.5">
+                  <span className="text-blue-400">📄</span> LegalDoc Workspace
+                </span>
+              </div>
+              <div className="flex items-center gap-2">
+                <button
+                  onClick={() => setLang(lang === 'en' ? 'hi' : 'en')}
+                  className="px-2 py-0.5 rounded bg-blue-500/10 hover:bg-blue-500/20 text-blue-400 text-[10px] font-semibold border border-blue-500/30 transition-colors"
+                >
+                  {lang === 'en' ? 'EN / हिंदी' : 'हिंदी / EN'}
+                </button>
+                <span className="px-2 py-0.5 rounded-full bg-indigo-500/10 text-indigo-300 text-[10px] border border-indigo-500/20">
+                  Groq LPU Active
+                </span>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-12 min-h-[220px] bg-[#070b14]">
+              {/* Document Editor */}
+              <div className="md:col-span-7 p-3 border-r border-white/5 flex flex-col justify-between">
+                <div>
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-gray-300 font-semibold text-[11px]">NDA_Contract_2026.pdf</span>
+                    <span className="text-[10px] text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded">Audited</span>
+                  </div>
+                  <div className="bg-[#0b1120] p-2.5 rounded-lg border border-white/5 space-y-1.5 text-gray-300 text-[10px] leading-relaxed">
+                    <div className="text-gray-400 text-[9px] font-semibold uppercase">Clause 4.2 — Confidentiality Term</div>
+                    <p className="bg-blue-500/10 p-1.5 rounded border-l-2 border-blue-400">
+                      "Each party agrees to hold all proprietary trade secrets in strict confidence for thirty-six (36) months from disclosure..."
+                    </p>
+                    <div className="text-[9px] text-gray-400 pt-1">
+                      <span className="text-blue-400 font-medium">Compliance:</span> Indian Contract Act 1872 Verified
+                    </div>
+                  </div>
+                </div>
+                <div className="flex justify-between items-center text-[10px] text-gray-400 pt-2 border-t border-white/5">
+                  <span>14 Clauses Analyzed</span>
+                  <span className="text-blue-400">Export PDF Ready ↓</span>
+                </div>
+              </div>
+
+              {/* AI Assistant */}
+              <div className="md:col-span-5 p-3 bg-[#0a0f1d] flex flex-col justify-between">
+                <div>
+                  <div className="flex items-center justify-between mb-2 pb-1 border-b border-white/5">
+                    <span className="text-gray-300 font-semibold text-[10px]">✨ AI Legal Assistant</span>
+                    <span className="text-[9px] text-gray-400">0.18s</span>
+                  </div>
+                  <div className="space-y-1.5">
+                    <div className="bg-[#10172a] p-1.5 rounded text-[10px] text-gray-300">
+                      <span className="text-blue-400 text-[9px] block">Query:</span>
+                      "Explain clause 4.2 simply."
+                    </div>
+                    <div className="bg-indigo-950/40 p-2 rounded text-[10px] text-indigo-100 border border-indigo-500/20">
+                      <span className="text-indigo-400 text-[9px] block font-semibold">AI Assistant:</span>
+                      {lang === 'en'
+                        ? "Both parties must safeguard confidential materials and cannot disclose them for exactly 3 years."
+                        : "दोनों पक्ष 3 साल तक गोपनीय व्यावसायिक जानकारी किसी तीसरे पक्ष के साथ साझा नहीं करेंगे।"}
+                    </div>
+                  </div>
+                </div>
+                <div className="pt-2 border-t border-white/5">
+                  <div className="flex justify-between text-[10px] text-gray-300 mb-1">
+                    <span>Compliance Score</span>
+                    <span className="text-emerald-400 font-bold">96%</span>
+                  </div>
+                  <div className="w-full bg-gray-800 h-1.5 rounded-full overflow-hidden">
+                    <div className="bg-gradient-to-r from-blue-500 to-emerald-400 h-full rounded-full" style={{ width: '96%' }}></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        );
+      }
+
+      if (type === 'health') {
+        return (
+          <div className="w-full bg-[#0a0f1d] rounded-xl border border-emerald-500/20 overflow-hidden text-xs font-sans select-none shadow-xl">
+            <div className="bg-[#0f172a] px-3 py-2 border-b border-white/5 flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <div className="flex gap-1.5">
+                  <span className="w-2.5 h-2.5 rounded-full bg-red-500/80 inline-block"></span>
+                  <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/80 inline-block"></span>
+                  <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/80 inline-block"></span>
+                </div>
+                <span className="text-gray-400 font-medium ml-2">NovaGen AI — Health Classifier</span>
+              </div>
+              <span className="px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-300 text-[10px] border border-emerald-500/20">
+                Streamlit
+              </span>
+            </div>
+
+            <div className="p-3 bg-[#070b14] space-y-2.5">
+              {/* Verified Metrics Banner */}
+              <div className="grid grid-cols-4 gap-1.5 text-center text-[10px]">
+                <div className="bg-[#0b1220] p-1.5 rounded border border-emerald-500/20">
+                  <span className="text-gray-400 text-[9px] block">RF Accuracy</span>
+                  <span className="text-emerald-400 font-bold text-xs">93.77%</span>
+                </div>
+                <div className="bg-[#0b1220] p-1.5 rounded border border-emerald-500/20">
+                  <span className="text-gray-400 text-[9px] block">RF Recall</span>
+                  <span className="text-emerald-400 font-bold text-xs">95.88%</span>
+                </div>
+                <div className="bg-[#0b1220] p-1.5 rounded border border-white/5">
+                  <span className="text-gray-400 text-[9px] block">Ensemble</span>
+                  <span className="text-blue-400 font-bold text-xs">Soft Vote</span>
+                </div>
+                <div className="bg-[#0b1220] p-1.5 rounded border border-white/5">
+                  <span className="text-gray-400 text-[9px] block">Pipeline</span>
+                  <span className="text-indigo-400 font-bold text-xs">StandardScaler</span>
+                </div>
+              </div>
+
+              {/* Inputs & Output */}
+              <div className="grid grid-cols-1 md:grid-cols-12 gap-2">
+                <div className="md:col-span-7 bg-[#0b1120] p-2.5 rounded border border-white/5 text-[10px] space-y-1.5">
+                  <div className="text-gray-400 text-[9px] uppercase font-semibold">Standardized Parameters</div>
+                  <div className="grid grid-cols-2 gap-1.5">
+                    <div className="bg-[#101728] p-1 rounded flex justify-between">
+                      <span className="text-gray-400">Glucose:</span>
+                      <span className="text-gray-200 font-mono">112 mg/dL</span>
+                    </div>
+                    <div className="bg-[#101728] p-1 rounded flex justify-between">
+                      <span className="text-gray-400">BP:</span>
+                      <span className="text-gray-200 font-mono">74 mmHg</span>
+                    </div>
+                    <div className="bg-[#101728] p-1 rounded flex justify-between">
+                      <span className="text-gray-400">BMI:</span>
+                      <span className="text-gray-200 font-mono">23.8</span>
+                    </div>
+                    <div className="bg-[#101728] p-1 rounded flex justify-between">
+                      <span className="text-gray-400">Insulin:</span>
+                      <span className="text-gray-200 font-mono">82 μU/mL</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="md:col-span-5 bg-emerald-950/30 p-2.5 rounded border border-emerald-500/20 flex flex-col justify-between">
+                  <div>
+                    <span className="text-emerald-400 font-semibold text-[10px] block">Predicted Classification</span>
+                    <div className="text-white font-bold text-sm mt-0.5 flex items-center gap-1">
+                      <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
+                      Optimal / Low Risk
+                    </div>
+                    <span className="text-[10px] text-emerald-200/80 block mt-0.5">
+                      Confidence: 94.6%
+                    </span>
+                  </div>
+                  <span className="text-[8px] text-gray-400 italic block mt-1">
+                    ML prototype · Non-clinical tool
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        );
+      }
+
+      if (type === 'clustering') {
+        return (
+          <div className="w-full bg-[#0a0f1d] rounded-xl border border-purple-500/20 overflow-hidden text-xs font-sans select-none shadow-xl">
+            <div className="bg-[#0f172a] px-3 py-2 border-b border-white/5 flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <div className="flex gap-1.5">
+                  <span className="w-2.5 h-2.5 rounded-full bg-red-500/80 inline-block"></span>
+                  <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/80 inline-block"></span>
+                  <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/80 inline-block"></span>
+                </div>
+                <span className="text-gray-400 font-medium ml-2">SmartCart — Customer Segmentation</span>
+              </div>
+              <span className="px-2 py-0.5 rounded-full bg-purple-500/10 text-purple-300 text-[10px] border border-purple-500/20">
+                K-Means & PCA
+              </span>
+            </div>
+
+            <div className="p-3 bg-[#070b14] space-y-2">
+              <div className="bg-[#0b1120] p-2.5 rounded border border-white/5">
+                <div className="flex justify-between items-center text-[10px] mb-1.5">
+                  <span className="text-gray-300 font-semibold">3D PCA Cluster Projections</span>
+                  <div className="flex gap-2">
+                    <span className="text-purple-400">● Affluent</span>
+                    <span className="text-cyan-400">● Budget</span>
+                    <span className="text-amber-400">● Growth</span>
+                  </div>
+                </div>
+
+                {/* SVG Cluster Plot */}
+                <div className="h-28 w-full bg-[#080d19] rounded relative overflow-hidden flex items-center justify-center border border-white/5">
+                  <svg className="w-full h-full" viewBox="0 0 380 110" preserveAspectRatio="none">
+                    <line x1="30" y1="20" x2="360" y2="20" stroke="rgba(255,255,255,0.05)" strokeDasharray="3 3" />
+                    <line x1="30" y1="55" x2="360" y2="55" stroke="rgba(255,255,255,0.05)" strokeDasharray="3 3" />
+                    <line x1="30" y1="90" x2="360" y2="90" stroke="rgba(255,255,255,0.05)" strokeDasharray="3 3" />
+
+                    {/* Cluster 1: Affluent */}
+                    <circle cx="80" cy="35" r="4.5" fill="#a855f7" />
+                    <circle cx="95" cy="42" r="5" fill="#a855f7" />
+                    <circle cx="110" cy="30" r="4" fill="#a855f7" />
+                    <circle cx="88" cy="48" r="4.5" fill="#c084fc" />
+                    <ellipse cx="95" cy="38" rx="30" ry="20" fill="none" stroke="#a855f7" strokeWidth="1" strokeDasharray="2 2" opacity="0.4" />
+
+                    {/* Cluster 2: Budget */}
+                    <circle cx="200" cy="78" r="4.5" fill="#06b6d4" />
+                    <circle cx="215" cy="85" r="5" fill="#06b6d4" />
+                    <circle cx="230" cy="74" r="4" fill="#06b6d4" />
+                    <circle cx="210" cy="90" r="4.5" fill="#22d3ee" />
+                    <ellipse cx="215" cy="82" rx="28" ry="16" fill="none" stroke="#06b6d4" strokeWidth="1" strokeDasharray="2 2" opacity="0.4" />
+
+                    {/* Cluster 3: Growth */}
+                    <circle cx="310" cy="45" r="4.5" fill="#f59e0b" />
+                    <circle cx="325" cy="40" r="5" fill="#f59e0b" />
+                    <circle cx="340" cy="52" r="4" fill="#f59e0b" />
+                    <circle cx="320" cy="58" r="4.5" fill="#fbbf24" />
+                    <ellipse cx="325" cy="48" rx="28" ry="18" fill="none" stroke="#f59e0b" strokeWidth="1" strokeDasharray="2 2" opacity="0.4" />
+                  </svg>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-3 gap-1.5 text-center text-[10px]">
+                <div className="bg-[#0b1220] p-1 rounded border border-white/5">
+                  <span className="text-gray-400 block text-[9px]">Elbow Method</span>
+                  <span className="text-purple-300 font-bold">Optimal K = 3</span>
+                </div>
+                <div className="bg-[#0b1220] p-1 rounded border border-white/5">
+                  <span className="text-gray-400 block text-[9px]">Silhouette Score</span>
+                  <span className="text-purple-300 font-bold">0.68 (High)</span>
+                </div>
+                <div className="bg-[#0b1220] p-1 rounded border border-white/5">
+                  <span className="text-gray-400 block text-[9px]">Reduction</span>
+                  <span className="text-purple-300 font-bold">3D PCA Space</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        );
+      }
+
+      if (type === 'assistant') {
+        return (
+          <div className="w-full bg-[#0a0f1d] rounded-xl border border-cyan-500/20 overflow-hidden text-xs font-sans select-none shadow-xl">
+            <div className="bg-[#0f172a] px-3 py-2 border-b border-white/5 flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <div className="flex gap-1.5">
+                  <span className="w-2.5 h-2.5 rounded-full bg-red-500/80 inline-block"></span>
+                  <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/80 inline-block"></span>
+                  <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/80 inline-block"></span>
+                </div>
+                <span className="text-gray-400 font-medium ml-2">AI Personal Assistant — Dual Workspace</span>
+              </div>
+              <span className="px-2 py-0.5 rounded-full bg-cyan-500/10 text-cyan-300 text-[10px] border border-cyan-500/20">
+                Flask + Groq
+              </span>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 bg-[#070b14] divide-y md:divide-y-0 md:divide-x divide-white/5">
+              {/* Chat Column */}
+              <div className="p-3 space-y-2 flex flex-col justify-between">
+                <div>
+                  <div className="flex justify-between items-center text-[10px] mb-1.5">
+                    <span className="text-cyan-400 font-semibold">💬 Instant Chat Query</span>
+                    <span className="text-gray-500 text-[9px]">Zero Reload</span>
+                  </div>
+                  <div className="space-y-1.5 text-[10px]">
+                    <div className="bg-[#0f172a] p-1.5 rounded text-gray-300">
+                      <span className="text-gray-500 text-[9px] block">User:</span>
+                      "Explain Soft Voting vs Hard Voting in ML ensembles."
+                    </div>
+                    <div className="bg-cyan-950/40 p-1.5 rounded text-cyan-100 border border-cyan-500/20">
+                      <span className="text-cyan-400 text-[9px] block font-semibold">Assistant:</span>
+                      "Hard voting predicts the majority class vote, while soft voting averages predicted class probabilities for higher precision."
+                    </div>
+                  </div>
+                </div>
+                <div className="bg-[#0b1120] px-2 py-1 rounded border border-white/5 text-[9px] text-gray-400 flex justify-between">
+                  <span>Ask anything...</span>
+                  <span className="text-cyan-400 font-semibold">Enter ↵</span>
+                </div>
+              </div>
+
+              {/* Summarizer Column */}
+              <div className="p-3 space-y-2 flex flex-col justify-between">
+                <div>
+                  <div className="flex justify-between items-center text-[10px] mb-1.5">
+                    <span className="text-indigo-400 font-semibold">✉️ Email Summarization</span>
+                    <span className="text-emerald-400 text-[9px] bg-emerald-500/10 px-1 rounded">2-3 Sentences</span>
+                  </div>
+                  <div className="bg-[#0b1120] p-1.5 rounded text-[9px] text-gray-400 mb-1">
+                    <span className="text-gray-500 block">Input: 380-word stakeholder update</span>
+                    <p className="line-clamp-2 text-gray-300">"Team, Q3 data engineering deliverables have transitioned into staging. Please verify all integration tests..."</p>
+                  </div>
+                  <div className="bg-indigo-950/30 p-1.5 rounded border border-indigo-500/20 text-[9px] text-indigo-100">
+                    <span className="text-indigo-400 font-semibold block mb-0.5">Concise Summary:</span>
+                    <ol className="list-decimal pl-3 space-y-0.5 text-gray-200">
+                      <li>Q3 engineering deliverables are live in staging.</li>
+                      <li>Automated pipelines completed health checks.</li>
+                      <li>Final stakeholder review required by Friday.</li>
+                    </ol>
+                  </div>
+                </div>
+                <div className="text-[9px] text-gray-500 pt-1 border-t border-white/5 flex justify-between">
+                  <span>Compression: 78%</span>
+                  <span className="text-indigo-400">Sub-second Groq</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        );
+      }
+
+      return null;
+    }
+
+    // --- Component: Project Card ---
+    function ProjectCard({ project }) {
+      const [showFeatures, setShowFeatures] = useState(false);
+
+      return (
+        <article className="group relative flex flex-col justify-between rounded-2xl bg-[#0b0f19]/90 border border-white/10 hover:border-blue-500/40 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-950/30 overflow-hidden backdrop-blur-sm">
+          <div className={`absolute inset-0 bg-gradient-to-br ${project.accentGradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none`} />
+
+          <div className="relative p-6 sm:p-7 flex flex-col flex-1">
+            {/* Header: Category & Metric */}
+            <div className="flex items-center justify-between gap-2 mb-3">
+              <span className={`inline-flex items-center gap-1.5 text-xs font-medium px-2.5 py-1 rounded-full border ${project.badgeClass}`}>
+                <span className="w-1.5 h-1.5 rounded-full bg-current animate-pulse"></span>
+                {project.category}
+              </span>
+              <span className="text-[11px] font-mono text-gray-400 bg-white/5 px-2 py-0.5 rounded border border-white/5">
+                {project.metric}
+              </span>
+            </div>
+
+            {/* Title & Tagline */}
+            <h3 className="text-xl sm:text-2xl font-bold text-white group-hover:text-blue-300 transition-colors">
+              {project.title}
+            </h3>
+            <p className="text-sm text-gray-300 mt-1 mb-4 font-medium leading-relaxed">
+              {project.tagline}
+            </p>
+
+            {/* Custom Interactive Preview */}
+            <div className="mb-5 transition-transform duration-300 group-hover:scale-[1.01]">
+              <ProjectPreviewMockup type={project.previewType} />
+            </div>
+
+            {/* Description */}
+            <p className="text-xs sm:text-sm text-gray-400 leading-relaxed mb-4">
+              {project.description}
+            </p>
+
+            {/* Key Features */}
+            <div className="mb-5 bg-[#080c16]/80 p-3.5 rounded-xl border border-white/5">
+              <div className="flex items-center justify-between text-xs font-semibold text-gray-300 mb-2">
+                <span>Key Engineering Features</span>
+                <button
+                  onClick={() => setShowFeatures(!showFeatures)}
+                  className="text-blue-400 hover:text-blue-300 text-[11px] underline font-normal transition-colors"
+                >
+                  {showFeatures ? 'Show Less' : `+${project.keyFeatures.length - 3} More`}
+                </button>
+              </div>
+
+              <ul className="space-y-1.5">
+                {(showFeatures ? project.keyFeatures : project.keyFeatures.slice(0, 3)).map((feat, idx) => (
+                  <li key={idx} className="flex items-start gap-2 text-xs text-gray-300">
+                    <span className="text-blue-400 font-bold mt-0.5">✓</span>
+                    <span>{feat}</span>
+                  </li>
+                ))}
+              </ul>
+
+              {project.disclaimer && (
+                <p className="text-[10px] text-gray-400 mt-2.5 pt-2 border-t border-white/5 italic">
+                  ℹ️ {project.disclaimer}
+                </p>
+              )}
+            </div>
+
+            {/* Technology Tags */}
+            <div className="flex flex-wrap gap-1.5 mb-6">
+              {project.techTags.map((tag) => (
+                <span key={tag} className="text-xs px-2.5 py-1 rounded-md bg-[#131b2e] text-gray-300 border border-white/5 font-mono">
+                  {tag}
+                </span>
+              ))}
+            </div>
+
+            {/* Card CTA: Live Project Link (Mandatory Exact URL) */}
+            <div className="mt-auto pt-4 border-t border-white/10 flex items-center gap-3">
+              <a
+                href={project.liveDemo}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 hover:from-blue-500 hover:to-violet-500 text-white text-xs sm:text-sm font-semibold shadow-lg shadow-blue-600/25 transition-all duration-200 active:scale-[0.98]"
+              >
+                <span>Explore Live Project</span>
+                <svg className="w-4 h-4 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                  <polyline points="15 3 21 3 21 9" />
+                  <line x1="10" y1="14" x2="21" y2="3" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </article>
+      );
+    }
+
+    // --- Main Portfolio Application ---
+    function App() {
+      const { personal, projects, skills, education, training, achievements } = portfolioData;
+      const [isScrolled, setIsScrolled] = useState(false);
+      const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+      const [activeSection, setActiveSection] = useState('home');
+      const [projectFilter, setProjectFilter] = useState('all');
+
+      // Contact Form State
+      const [contactForm, setContactForm] = useState({ name: '', email: '', subject: '', message: '' });
+      const [formErrors, setFormErrors] = useState({});
+      const [submitting, setSubmitting] = useState(false);
+      const [copiedEmail, setCopiedEmail] = useState(false);
+      const [copiedMessage, setCopiedMessage] = useState(false);
+
+      useEffect(() => {
+        const handleScroll = () => {
+          setIsScrolled(window.scrollY > 20);
+          const sections = ['home', 'projects', 'skills', 'about', 'education', 'contact'];
+          const scrollPos = window.scrollY + 140;
+
+          for (const s of sections) {
+            const el = document.getElementById(s);
+            if (el) {
+              const top = el.offsetTop;
+              const h = el.offsetHeight;
+              if (scrollPos >= top && scrollPos < top + h) {
+                setActiveSection(s);
+                break;
+              }
+            }
+          }
+        };
+
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        return () => window.removeEventListener('scroll', handleScroll);
+      }, []);
+
+      const scrollTo = (id) => {
+        setMobileMenuOpen(false);
+        const el = document.getElementById(id);
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      };
+
+      const handleContactSubmit = (e) => {
+        e.preventDefault();
+        const errs = {};
+        if (!contactForm.name.trim()) errs.name = 'Please provide your name.';
+        if (!contactForm.email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(contactForm.email)) {
+          errs.email = 'Please provide a valid email address.';
+        }
+        if (!contactForm.subject.trim()) errs.subject = 'Please specify a subject.';
+        if (!contactForm.message.trim()) errs.message = 'Please enter your message.';
+
+        if (Object.keys(errs).length > 0) {
+          setFormErrors(errs);
+          return;
+        }
+
+        setFormErrors({});
+        setSubmitting(true);
+
+        const mailSubject = encodeURIComponent(`[Portfolio] ${contactForm.subject} - from ${contactForm.name}`);
+        const mailBody = encodeURIComponent(`Hi Dipesh,\n\n${contactForm.message}\n\n---\nSender:\nName: ${contactForm.name}\nEmail: ${contactForm.email}`);
+        
+        window.location.href = `mailto:${personal.email}?subject=${mailSubject}&body=${mailBody}`;
+
+        setTimeout(() => setSubmitting(false), 1500);
+      };
+
+      const copyToClipboard = () => {
+        navigator.clipboard.writeText(personal.email);
+        setCopiedEmail(true);
+        setTimeout(() => setCopiedEmail(false), 2500);
+      };
+
+      const copyMessageToClipboard = () => {
+        const errs = {};
+        if (!contactForm.name.trim()) errs.name = 'Please provide your name.';
+        if (!contactForm.email.trim()) errs.email = 'Please provide your email.';
+        if (!contactForm.message.trim()) errs.message = 'Please enter your message.';
+
+        if (Object.keys(errs).length > 0) {
+          setFormErrors(errs);
+          return;
+        }
+        setFormErrors({});
+
+        const formatted = `Subject: ${contactForm.subject || 'Portfolio Inquiry'}\nFrom: ${contactForm.name} (${contactForm.email})\n\nMessage:\n${contactForm.message}`;
+        navigator.clipboard.writeText(formatted);
+        setCopiedMessage(true);
+        setTimeout(() => setCopiedMessage(false), 2500);
+      };
+
+      return (
+        <div className="min-h-screen bg-[#070b14] text-gray-100 flex flex-col justify-between">
+          {/* Navigation Bar */}
+          <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+            isScrolled ? 'bg-[#080c14]/90 backdrop-blur-md border-b border-white/10 shadow-lg py-3' : 'bg-transparent py-4'
+          }`}>
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+              {/* Wordmark */}
+              <a href="#home" onClick={(e) => { e.preventDefault(); scrollTo('home'); }} className="flex items-center gap-2.5 group">
+                <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-blue-600 via-indigo-600 to-violet-600 flex items-center justify-center text-white font-bold text-base shadow-md shadow-blue-500/20 group-hover:scale-105 transition-transform">
+                  DK
+                </div>
+                <div>
+                  <span className="text-white font-bold tracking-tight text-sm sm:text-base group-hover:text-blue-300 transition-colors">
+                    {personal.name}
+                  </span>
+                  <span className="text-[10px] text-gray-400 font-mono block sm:inline-block sm:ml-2">
+                    SDE · AI/ML
+                  </span>
+                </div>
+              </a>
+
+              {/* Desktop Nav Items */}
+              <nav className="hidden md:flex items-center gap-1 bg-[#0c1220]/75 border border-white/10 rounded-full px-4 py-1.5 backdrop-blur-sm">
+                {[
+                  { id: 'home', label: 'Home' },
+                  { id: 'projects', label: 'Projects' },
+                  { id: 'skills', label: 'Skills' },
+                  { id: 'about', label: 'About' },
+                  { id: 'education', label: 'Education' },
+                  { id: 'contact', label: 'Contact' },
+                ].map((item) => (
+                  <button
+                    key={item.id}
+                    onClick={() => scrollTo(item.id)}
+                    className={`text-xs lg:text-sm font-medium px-3 py-1.5 rounded-full transition-all duration-200 ${
+                      activeSection === item.id
+                        ? 'bg-blue-600 text-white shadow-sm shadow-blue-500/30'
+                        : 'text-gray-300 hover:text-white hover:bg-white/5'
+                    }`}
+                  >
+                    {item.label}
+                  </button>
+                ))}
+              </nav>
+
+              {/* Resume CTA & Mobile Toggle */}
+              <div className="flex items-center gap-3">
+                <a
+                  href={personal.resumePath}
+                  download="Dipesh_Kumar_Resume.pdf"
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white text-xs sm:text-sm font-semibold shadow-md shadow-blue-600/20 active:scale-95 transition-all"
+                >
+                  <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                    <polyline points="7 10 12 15 17 10" />
+                    <line x1="12" y1="15" x2="12" y2="3" />
+                  </svg>
+                  <span>Resume</span>
+                </a>
+
+                <button
+                  onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                  className="md:hidden p-2 rounded-lg text-gray-400 hover:text-white hover:bg-white/5 border border-white/10"
+                  aria-label="Toggle Menu"
+                >
+                  <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <line x1="3" y1="12" x2="21" y2="12" />
+                    <line x1="3" y1="6" x2="21" y2="6" />
+                    <line x1="3" y1="18" x2="21" y2="18" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            {/* Mobile Nav Drawer */}
+            {mobileMenuOpen && (
+              <div className="md:hidden mt-3 px-4 pb-4 bg-[#0b0f19] border-b border-white/10 space-y-1">
+                {['home', 'projects', 'skills', 'about', 'education', 'contact'].map((id) => (
+                  <button
+                    key={id}
+                    onClick={() => scrollTo(id)}
+                    className="w-full text-left capitalize px-3 py-2 text-sm text-gray-300 hover:text-white hover:bg-white/5 rounded-lg"
+                  >
+                    {id}
+                  </button>
+                ))}
+              </div>
+            )}
+          </header>
+
+          <main className="flex-1">
+            {/* HERO SECTION */}
+            <section id="home" className="relative min-h-[92vh] pt-28 pb-16 sm:pt-36 sm:pb-24 flex items-center justify-center overflow-hidden">
+              <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-600/15 rounded-full blur-[128px] pointer-events-none" />
+              <div className="absolute top-1/3 right-1/4 w-[450px] h-[450px] bg-violet-600/15 rounded-full blur-[140px] pointer-events-none" />
+
+              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+                  {/* Left Column */}
+                  <div className="lg:col-span-7 text-left space-y-6">
+                    <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/25 text-blue-400 text-xs font-semibold tracking-wider uppercase">
+                      <span className="w-2 h-2 rounded-full bg-blue-400 animate-pulse"></span>
+                      FINAL-YEAR COMPUTER SCIENCE ENGINEERING STUDENT
+                    </div>
+
+                    <div className="space-y-2">
+                      <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.1]">
+                        Hi, I'm <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-300 to-violet-400">Dipesh Kumar</span>.
+                      </h1>
+                      <p className="text-2xl sm:text-3xl font-bold text-gray-200 tracking-tight leading-snug">
+                        I build software and intelligent AI-powered applications.
+                      </p>
+                    </div>
+
+                    <p className="text-base sm:text-lg text-gray-300/90 leading-relaxed max-w-2xl font-normal">
+                      Passionate about software development, machine learning, and Generative AI. I turn ideas into practical applications using modern technologies.
+                    </p>
+
+                    {/* Capability Labels */}
+                    <div className="flex flex-wrap items-center gap-2.5 pt-1">
+                      {personal.capabilities.map((cap) => (
+                        <div key={cap.label} className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#0e1628] border border-blue-500/20 text-xs font-medium text-gray-200 shadow-sm">
+                          <span className="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>
+                          <span>{cap.label}</span>
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* Action CTAs */}
+                    <div className="flex flex-wrap items-center gap-3.5 pt-3">
+                      <button
+                        onClick={() => scrollTo('projects')}
+                        className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 hover:from-blue-500 hover:to-violet-500 text-white text-sm sm:text-base font-semibold shadow-lg shadow-blue-600/30 active:scale-95 transition-all"
+                      >
+                        <span>Explore My Projects</span>
+                        <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                          <line x1="12" y1="5" x2="12" y2="19" />
+                          <polyline points="19 12 12 19 5 12" />
+                        </svg>
+                      </button>
+
+                      <a
+                        href={personal.resumePath}
+                        download="Dipesh_Kumar_Resume.pdf"
+                        className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-white/5 hover:bg-white/10 text-white text-sm sm:text-base font-semibold border border-white/15 hover:border-white/25 active:scale-95 transition-all"
+                      >
+                        <svg className="w-4 h-4 text-blue-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                          <polyline points="7 10 12 15 17 10" />
+                          <line x1="12" y1="15" x2="12" y2="3" />
+                        </svg>
+                        <span>Download Resume</span>
+                      </a>
+
+                      <button
+                        onClick={() => scrollTo('contact')}
+                        className="inline-flex items-center gap-1.5 px-4 py-3 rounded-xl text-gray-300 hover:text-white text-sm sm:text-base font-medium hover:bg-white/5 transition-colors"
+                      >
+                        <span>Contact Me</span>
+                        <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                          <line x1="5" y1="12" x2="19" y2="12" />
+                          <polyline points="12 5 19 12 12 19" />
+                        </svg>
+                      </button>
+                    </div>
+
+                    {/* Social Profiles */}
+                    <div className="flex items-center gap-3 pt-2 text-gray-400 text-xs">
+                      <span className="text-gray-500 font-mono text-[11px]">PROFILES:</span>
+                      {personal.social.github && (
+                        <a href={personal.social.github} target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg bg-white/5 hover:bg-white/10 hover:text-white border border-white/10 transition-colors" aria-label="GitHub">
+                          <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" />
+                          </svg>
+                        </a>
+                      )}
+                      {personal.social.linkedin && (
+                        <a href={personal.social.linkedin} target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg bg-white/5 hover:bg-white/10 hover:text-white border border-white/10 transition-colors" aria-label="LinkedIn">
+                          <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                          </svg>
+                        </a>
+                      )}
+                      {personal.social.leetcode && (
+                        <a href={personal.social.leetcode} target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg bg-white/5 hover:bg-white/10 hover:text-white border border-white/10 transition-colors" aria-label="LeetCode">
+                          <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M13.483 0a1.374 1.374 0 0 0-.961.438L7.116 6.226l-3.854 4.126a5.266 5.266 0 0 0-1.209 2.104 5.35 5.35 0 0 0-.125.513 5.527 5.527 0 0 0 .062 2.362 5.83 5.83 0 0 0 .349 1.017 5.938 5.938 0 0 0 1.271 1.818l4.277 4.193.039.038c2.248 2.165 5.852 2.133 8.063-.074l2.396-2.392c.54-.54.54-1.414.003-1.955a1.378 1.378 0 0 0-1.951-.003l-2.396 2.392a3.021 3.021 0 0 1-4.205.038l-.02-.019-4.276-4.193c-.652-.64-.972-1.469-.948-2.263a2.68 2.68 0 0 1 .666-1.794l3.774-4.04 4.502-4.821c.545-.545.545-1.42 0-1.964A1.368 1.368 0 0 0 13.483 0zm-2.88 7.218a1.38 1.38 0 0 0-.978.402l-4.78 4.78a1.38 1.38 0 0 0 0 1.952 1.38 1.38 0 0 0 1.951 0l4.78-4.78a1.38 1.38 0 0 0-.973-2.354zm6.91 5.385h-7.66a1.38 1.38 0 1 0 0 2.76h7.66a1.38 1.38 0 1 0 0-2.76z" />
+                          </svg>
+                        </a>
+                      )}
+                      <span className="text-gray-500 font-mono text-[11px] ml-1">Lucknow, India</span>
+                    </div>
+                  </div>
+
+                  {/* Right Column: Code & Execution Panel */}
+                  <div className="lg:col-span-5 relative">
+                    <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-indigo-600/20 rounded-2xl blur-xl" />
+                    <div className="relative rounded-2xl bg-[#0a0f1d] border border-blue-500/25 shadow-2xl overflow-hidden font-mono text-xs">
+                      <div className="bg-[#0f172a] px-4 py-3 border-b border-white/5 flex items-center justify-between">
+                        <div className="flex items-center gap-2">
+                          <span className="w-3 h-3 rounded-full bg-red-500/80 inline-block"></span>
+                          <span className="w-3 h-3 rounded-full bg-yellow-500/80 inline-block"></span>
+                          <span className="w-3 h-3 rounded-full bg-emerald-500/80 inline-block"></span>
+                          <span className="text-gray-400 font-medium ml-2 text-[11px]">pipeline_eval.py</span>
+                        </div>
+                        <div className="flex items-center gap-1.5">
+                          <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                          <span className="text-[10px] text-emerald-400 font-semibold">Active</span>
+                        </div>
+                      </div>
+
+                      <div className="p-4 sm:p-5 space-y-1.5 text-gray-300 leading-relaxed text-[11px] sm:text-xs overflow-x-auto">
+                        <p className="text-gray-500"># Engineering AI/ML & GenAI Systems</p>
+                        <p><span className="text-violet-400">from</span> sklearn.ensemble <span className="text-violet-400">import</span> RandomForestClassifier, VotingClassifier</p>
+                        <p><span className="text-violet-400">from</span> groq <span className="text-violet-400">import</span> GroqClient</p>
+                        <p className="pt-1"><span className="text-blue-400">rf_model</span> = RandomForestClassifier(n_estimators=<span className="text-amber-300">100</span>)</p>
+                        <p><span className="text-blue-400">metrics</span> = evaluate_model(rf_model, X_test, y_test)</p>
+                        <p className="text-emerald-400 pt-1">&gt;&gt;&gt; print(f"Accuracy: &#123;metrics.accuracy:.2%&#125;, Recall: &#123;metrics.recall:.2%&#125;")</p>
+                        <p className="text-emerald-300 font-bold bg-emerald-950/30 px-2 py-1 rounded border border-emerald-500/20">
+                          Accuracy: 93.77%, Recall: 95.88%
+                        </p>
+                        <p className="pt-1 text-gray-500"># Ultra-fast LLM inference via Groq</p>
+                        <p><span className="text-blue-400">response</span> = groq.chat(model=<span className="text-green-300">"llama-3-70b"</span>)</p>
+                      </div>
+
+                      <div className="bg-[#0b1222] px-4 py-2.5 border-t border-white/5 flex items-center justify-between text-[11px]">
+                        <div className="flex items-center gap-2">
+                          <span className="px-2 py-0.5 rounded bg-blue-500/10 text-blue-300 border border-blue-500/20 font-sans text-[10px]">Python</span>
+                          <span className="px-2 py-0.5 rounded bg-cyan-500/10 text-cyan-300 border border-cyan-500/20 font-sans text-[10px]">React</span>
+                          <span className="px-2 py-0.5 rounded bg-violet-500/10 text-violet-300 border border-violet-500/20 font-sans text-[10px]">Scikit-Learn</span>
+                        </div>
+                        <span className="text-gray-400 font-mono text-[10px]">200+ DSA</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            {/* 2. PROJECT-FIRST SECTION: Placed immediately after Hero */}
+            <section id="projects" className="py-20 sm:py-28 relative scroll-mt-16">
+              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+                <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-semibold uppercase tracking-wider mb-3">
+                    <span className="w-2 h-2 rounded-full bg-blue-400 animate-ping"></span>
+                    Featured Engineering Work
+                  </div>
+                  <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+                    Projects I've Built
+                  </h2>
+                  <p className="mt-4 text-base sm:text-lg text-gray-400 leading-relaxed">
+                    Practical applications combining software engineering, machine learning, and Generative AI.
+                  </p>
+
+                  {/* Domain Filter Pills */}
+                  <div className="flex items-center justify-center gap-2 pt-6">
+                    <button
+                      onClick={() => setProjectFilter('all')}
+                      className={`px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all ${
+                        projectFilter === 'all'
+                          ? 'bg-blue-600 text-white shadow-md shadow-blue-500/20'
+                          : 'bg-[#0f172a] text-gray-400 hover:text-white border border-white/5'
+                      }`}
+                    >
+                      All Projects (4)
+                    </button>
+                    <button
+                      onClick={() => setProjectFilter('genai')}
+                      className={`px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all ${
+                        projectFilter === 'genai'
+                          ? 'bg-blue-600 text-white shadow-md shadow-blue-500/20'
+                          : 'bg-[#0f172a] text-gray-400 hover:text-white border border-white/5'
+                      }`}
+                    >
+                      Generative AI (2)
+                    </button>
+                    <button
+                      onClick={() => setProjectFilter('ml')}
+                      className={`px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all ${
+                        projectFilter === 'ml'
+                          ? 'bg-blue-600 text-white shadow-md shadow-blue-500/20'
+                          : 'bg-[#0f172a] text-gray-400 hover:text-white border border-white/5'
+                      }`}
+                    >
+                      Machine Learning (2)
+                    </button>
+                  </div>
+                </div>
+
+                {/* 2-Column Responsive Grid with exactly 4 featured projects */}
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10">
+                  {projects
+                    .filter((p) => {
+                      if (projectFilter === 'all') return true;
+                      if (projectFilter === 'genai') return p.techTags.includes('Generative AI') || p.techTags.includes('LLMs');
+                      if (projectFilter === 'ml') return p.techTags.includes('Machine Learning') || p.techTags.includes('Clustering');
+                      return true;
+                    })
+                    .map((p) => (
+                      <ProjectCard key={p.id} project={p} />
+                    ))}
+                </div>
+
+                <div className="mt-12 text-center">
+                  <p className="text-xs text-gray-500 max-w-xl mx-auto">
+                    ✓ All 4 projects feature deployed live interactive demos hosted on Render and Streamlit.
+                  </p>
+                </div>
+              </div>
+            </section>
+
+            {/* 3. SKILLS SECTION */}
+            <section id="skills" className="py-20 sm:py-24 relative scroll-mt-16 bg-[#080c16]/50">
+              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+                <div className="text-center max-w-3xl mx-auto mb-14">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs font-semibold uppercase tracking-wider mb-3">
+                    <span>⚡</span>
+                    Technical Toolkit
+                  </div>
+                  <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+                    Technologies I Work With
+                  </h2>
+                  <p className="mt-3 text-base text-gray-400">
+                    A comprehensive toolkit across core languages, machine learning pipelines, and full-stack engineering.
+                  </p>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                  {skills.map((cat) => (
+                    <div key={cat.category} className="rounded-xl bg-[#0b101d] border border-white/5 hover:border-blue-500/30 p-5 transition-all flex flex-col justify-between">
+                      <div>
+                        <div className="flex items-center gap-2 mb-2 pb-2 border-b border-white/5">
+                          <span className="text-base">{cat.icon}</span>
+                          <h3 className="text-sm font-bold text-white tracking-tight">{cat.category}</h3>
+                        </div>
+                        <p className="text-[11px] text-gray-400 mb-3 line-clamp-1">{cat.desc}</p>
+                        <div className="space-y-2">
+                          {cat.items.map((it) => (
+                            <div key={it.name} className={`flex items-center justify-between p-2 rounded-lg text-xs ${
+                              it.highlight ? 'bg-blue-600/10 border border-blue-500/20 text-blue-200' : 'bg-[#111827]/70 border border-white/5 text-gray-300'
+                            }`}>
+                              <span className="font-medium">{it.name}</span>
+                              <span className="text-[10px] text-gray-400 font-mono">{it.note}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </section>
+
+            {/* 4. ABOUT SECTION */}
+            <section id="about" className="py-20 sm:py-24 relative scroll-mt-16">
+              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                  <div className="lg:col-span-6 space-y-6">
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-violet-500/10 border border-violet-500/20 text-violet-400 text-xs font-semibold uppercase tracking-wider">
+                      <span>👤</span>
+                      About Me
+                    </div>
+                    <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight leading-tight">
+                      Turning complex algorithmic logic into reliable, usable software.
+                    </h2>
+                    <div className="space-y-4 text-gray-300 text-sm sm:text-base leading-relaxed">
+                      <p>{personal.summary}</p>
+                      <p className="text-gray-400">
+                        My approach centers on pragmatic engineering: choosing the right tool for the job, writing clean and maintainable code, and focusing on measurable outcomes—whether that's achieving 95.88% recall in health prediction or sub-second LLM responses for legal documents.
+                      </p>
+                    </div>
+
+                    <div className="p-4 rounded-xl bg-[#0e1628] border border-blue-500/20 flex items-start gap-3.5">
+                      <span className="text-2xl mt-0.5">🎓</span>
+                      <div>
+                        <div className="text-xs uppercase tracking-wider text-blue-400 font-semibold">Academic Foundation</div>
+                        <div className="text-sm font-bold text-white mt-0.5">B.Tech in Computer Science Engineering (Pursuing)</div>
+                        <div className="text-xs text-gray-300 mt-0.5">Babu Banarasi Das University, Lucknow · CGPA: 8.79 till 3rd Year</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    {[
+                      { title: "Building Practical Applications", desc: "Delivering real interactive web software from end-to-end with reactive interfaces and resilient backends.", icon: "🚀" },
+                      { title: "Algorithmic Problem Solving", desc: "Solved 200+ DSA problems on LeetCode with strong foundation in Java, time-complexity analysis, and clean code.", icon: "💡" },
+                      { title: "Applied Machine Learning", desc: "Hands-on experience developing supervised classifiers (93.77% accuracy) and unsupervised clustering pipelines (K-Means, PCA).", icon: "📊" },
+                      { title: "Full-Stack & Generative AI", desc: "Integrating high-speed LLM inference (Groq API, Claude, Google AI Studio) into practical tools for document processing and summarization.", icon: "⚡" },
+                    ].map((p) => (
+                      <div key={p.title} className="p-5 rounded-xl bg-[#0b101e] border border-white/5 hover:border-violet-500/30 transition-all flex flex-col justify-between">
+                        <div>
+                          <div className="text-2xl mb-2">{p.icon}</div>
+                          <h3 className="text-sm font-bold text-white mb-1.5">{p.title}</h3>
+                          <p className="text-xs text-gray-400 leading-relaxed">{p.desc}</p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            {/* 5. EDUCATION TIMELINE */}
+            <section id="education" className="py-20 sm:py-24 relative scroll-mt-16 bg-[#080c16]/50">
+              <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+                <div className="text-center max-w-2xl mx-auto mb-14">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-semibold uppercase tracking-wider mb-3">
+                    <span>📚</span>
+                    Academic Background
+                  </div>
+                  <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+                    Education
+                  </h2>
+                  <p className="mt-2 text-sm text-gray-400">
+                    A consistent academic track record in computer science and mathematics.
+                  </p>
+                </div>
+
+                <div className="relative border-l border-white/10 ml-4 sm:ml-32 space-y-10 sm:space-y-12">
+                  {education.map((item, idx) => (
+                    <div key={item.degree} className="relative pl-6 sm:pl-8 group">
+                      <div className="absolute -left-[17px] top-1.5 w-8 h-8 rounded-full bg-[#0a0f1d] border-2 border-blue-500 flex items-center justify-center text-xs text-blue-400 group-hover:scale-110 group-hover:bg-blue-600 group-hover:text-white transition-all shadow-md shadow-blue-500/20">
+                        {idx === 0 ? '🎓' : idx === 1 ? '🏫' : '📖'}
+                      </div>
+
+                      <div className="sm:absolute sm:-left-36 sm:top-2 sm:w-28 sm:text-right hidden sm:block">
+                        <span className="text-xs font-mono text-blue-400 font-semibold block">{item.period}</span>
+                        <span className="text-[10px] text-gray-500 font-medium">{item.badge}</span>
+                      </div>
+
+                      <div className="p-5 sm:p-6 rounded-xl bg-[#0b101f] border border-white/5 hover:border-blue-500/30 transition-all">
+                        <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
+                          <span className="sm:hidden text-xs font-mono text-blue-400 font-semibold">{item.period} · {item.badge}</span>
+                          <span className="inline-flex items-center text-xs font-semibold px-2.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                            {item.score}
+                          </span>
+                        </div>
+                        <h3 className="text-base sm:text-lg font-bold text-white group-hover:text-blue-300 transition-colors">
+                          {item.degree}
+                        </h3>
+                        <div className="text-xs sm:text-sm text-gray-300 font-medium mt-1">
+                          {item.institution} <span className="text-gray-500">— {item.location}</span>
+                        </div>
+                        <p className="text-xs text-gray-400 mt-2 leading-relaxed">{item.details}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </section>
+
+            {/* 6. TRAINING, LEADERSHIP & ACHIEVEMENTS */}
+            <section className="py-20 sm:py-24 relative scroll-mt-16">
+              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
+                  {/* Practical Training */}
+                  <div className="lg:col-span-6 space-y-6">
+                    <div className="flex items-center gap-2 mb-2">
+                      <span className="text-xl">🛠️</span>
+                      <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+                        Training & Programs
+                      </h2>
+                    </div>
+                    <p className="text-sm text-gray-400">
+                      Practical industrial summer training and professional development.
+                    </p>
+
+                    <div className="space-y-4 pt-1">
+                      {training.map((item) => (
+                        <div key={item.title} className="p-5 rounded-xl bg-[#0b101e] border border-white/5 hover:border-blue-500/30 transition-all">
+                          <div className="flex flex-wrap items-center justify-between gap-2 mb-1.5">
+                            <span className="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20">
+                              {item.badge}
+                            </span>
+                            <span className="text-xs font-mono text-gray-400">{item.period}</span>
+                          </div>
+                          <h3 className="text-base font-bold text-white mt-1">{item.title}</h3>
+                          <div className="text-xs text-indigo-300 font-medium mt-0.5">{item.provider} · {item.duration}</div>
+                          <p className="text-xs text-gray-400 mt-2.5 leading-relaxed">{item.description}</p>
+                        </div>
+                      ))}
+                    </div>
+
+                    <div className="p-4 rounded-xl bg-[#0e1628] border border-white/5 mt-4">
+                      <span className="text-xs uppercase tracking-wider text-gray-400 font-semibold block mb-2">Languages Spoken</span>
+                      <div className="flex flex-wrap gap-4 text-xs">
+                        <div className="flex items-center gap-1.5 text-gray-300">
+                          <span className="w-2 h-2 rounded-full bg-blue-400"></span>
+                          <span className="font-semibold text-white">English:</span>
+                          <span className="text-gray-400">Professional Working Proficiency</span>
+                        </div>
+                        <div className="flex items-center gap-1.5 text-gray-300">
+                          <span className="w-2 h-2 rounded-full bg-blue-400"></span>
+                          <span className="font-semibold text-white">Hindi:</span>
+                          <span className="text-gray-400">Native Proficiency</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Achievements & Leadership */}
+                  <div className="lg:col-span-6 space-y-6">
+                    <div className="flex items-center gap-2 mb-2">
+                      <span className="text-xl">🏆</span>
+                      <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+                        Achievements & Leadership
+                      </h2>
+                    </div>
+                    <p className="text-sm text-gray-400">
+                      Verified problem-solving milestones, university leadership, and community workshops.
+                    </p>
+
+                    <div className="space-y-4 pt-1">
+                      {achievements.map((item) => (
+                        <div key={item.title} className="p-5 rounded-xl bg-[#0b101e] border border-white/5 hover:border-violet-500/30 transition-all flex items-start gap-4">
+                          <div className="w-10 h-10 rounded-xl bg-violet-600/10 border border-violet-500/20 flex items-center justify-center text-lg text-violet-400 flex-shrink-0 mt-0.5">
+                            {item.icon}
+                          </div>
+                          <div className="flex-1">
+                            <div className="flex items-center justify-between gap-2 mb-1">
+                              <span className="text-[11px] font-semibold text-violet-400 uppercase tracking-wider">{item.category}</span>
+                              <span className="text-xs font-mono text-gray-300 bg-white/5 px-2 py-0.5 rounded">{item.badge}</span>
+                            </div>
+                            <h3 className="text-base font-bold text-white leading-snug">{item.title}</h3>
+                            <p className="text-xs text-gray-400 mt-1.5 leading-relaxed">{item.desc}</p>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            {/* 7. CONTACT SECTION */}
+            <section id="contact" className="py-20 sm:py-28 relative scroll-mt-16 bg-[#080c16]/50">
+              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                  {/* Left Column */}
+                  <div className="lg:col-span-5 space-y-6">
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-semibold uppercase tracking-wider">
+                      <span>📫</span>
+                      Get In Touch
+                    </div>
+                    <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+                      Let's Build Something Meaningful.
+                    </h2>
+                    <p className="text-base text-gray-300 leading-relaxed">
+                      Have an opportunity, project idea, or collaboration in mind? Let's connect. I am actively seeking roles in Software Development and AI/ML.
+                    </p>
+
+                    <div className="space-y-3 pt-2">
+                      {/* Email */}
+                      <div className="p-4 rounded-xl bg-[#0b101f] border border-white/5 hover:border-blue-500/30 transition-all flex items-center justify-between">
+                        <div className="flex items-center gap-3">
+                          <div className="w-10 h-10 rounded-lg bg-blue-500/10 text-blue-400 flex items-center justify-center text-lg">
+                            ✉️
+                          </div>
+                          <div>
+                            <span className="text-[11px] text-gray-400 block">Direct Email</span>
+                            <a href={`mailto:${personal.email}`} className="text-sm font-semibold text-white hover:text-blue-300 transition-colors">
+                              {personal.email}
+                            </a>
+                          </div>
+                        </div>
+                        <button onClick={copyToClipboard} className="px-2.5 py-1 text-xs rounded bg-white/5 hover:bg-white/10 text-gray-300 border border-white/10 transition-colors">
+                          {copiedEmail ? 'Copied ✓' : 'Copy'}
+                        </button>
+                      </div>
+
+                      {/* Phone */}
+                      <div className="p-4 rounded-xl bg-[#0b101f] border border-white/5 hover:border-emerald-500/30 transition-all flex items-center justify-between">
+                        <div className="flex items-center gap-3">
+                          <div className="w-10 h-10 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-lg">
+                            📞
+                          </div>
+                          <div>
+                            <span className="text-[11px] text-gray-400 block">Phone</span>
+                            <a href={`tel:${personal.phone}`} className="text-sm font-semibold text-white hover:text-emerald-300 transition-colors">
+                              {personal.phone}
+                            </a>
+                          </div>
+                        </div>
+                        <a href={`tel:${personal.phone}`} className="px-2.5 py-1 text-xs rounded bg-white/5 hover:bg-white/10 text-gray-300 border border-white/10 transition-colors">
+                          Call
+                        </a>
+                      </div>
+
+                      {/* Location */}
+                      <div className="p-4 rounded-xl bg-[#0b101f] border border-white/5 flex items-center gap-3">
+                        <div className="w-10 h-10 rounded-lg bg-indigo-500/10 text-indigo-400 flex items-center justify-center text-lg">
+                          📍
+                        </div>
+                        <div>
+                          <span className="text-[11px] text-gray-400 block">Location</span>
+                          <span className="text-sm font-semibold text-white">{personal.location}</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Right Column: Direct Mail Composition */}
+                  <div className="lg:col-span-7">
+                    <form onSubmit={handleContactSubmit} noValidate className="p-6 sm:p-8 rounded-2xl bg-[#0b101f] border border-white/10 shadow-2xl space-y-4">
+                      <h3 className="text-lg font-bold text-white mb-1">Send a Direct Message</h3>
+                      <p className="text-xs text-gray-400 mb-4">Composes a formatted inquiry directly in your email client.</p>
+
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                          <label className="block text-xs font-semibold text-gray-300 mb-1">Your Name *</label>
+                          <input
+                            type="text"
+                            value={contactForm.name}
+                            onChange={(e) => setContactForm({ ...contactForm, name: e.target.value })}
+                            placeholder="Alex Morgan"
+                            className={`w-full px-3.5 py-2.5 rounded-lg bg-[#070b14] border text-sm text-white placeholder-gray-500 focus:outline-none ${
+                              formErrors.name ? 'border-red-500' : 'border-white/10 focus:border-blue-500'
+                            }`}
+                          />
+                          {formErrors.name && <p className="text-[11px] text-red-400 mt-1">{formErrors.name}</p>}
+                        </div>
+
+                        <div>
+                          <label className="block text-xs font-semibold text-gray-300 mb-1">Your Email *</label>
+                          <input
+                            type="email"
+                            value={contactForm.email}
+                            onChange={(e) => setContactForm({ ...contactForm, email: e.target.value })}
+                            placeholder="alex@company.com"
+                            className={`w-full px-3.5 py-2.5 rounded-lg bg-[#070b14] border text-sm text-white placeholder-gray-500 focus:outline-none ${
+                              formErrors.email ? 'border-red-500' : 'border-white/10 focus:border-blue-500'
+                            }`}
+                          />
+                          {formErrors.email && <p className="text-[11px] text-red-400 mt-1">{formErrors.email}</p>}
+                        </div>
+                      </div>
+
+                      <div>
+                        <label className="block text-xs font-semibold text-gray-300 mb-1">Subject *</label>
+                        <input
+                          type="text"
+                          value={contactForm.subject}
+                          onChange={(e) => setContactForm({ ...contactForm, subject: e.target.value })}
+                          placeholder="SDE Opportunity / AI Project"
+                          className={`w-full px-3.5 py-2.5 rounded-lg bg-[#070b14] border text-sm text-white placeholder-gray-500 focus:outline-none ${
+                            formErrors.subject ? 'border-red-500' : 'border-white/10 focus:border-blue-500'
+                          }`}
+                        />
+                        {formErrors.subject && <p className="text-[11px] text-red-400 mt-1">{formErrors.subject}</p>}
+                      </div>
+
+                      <div>
+                        <label className="block text-xs font-semibold text-gray-300 mb-1">Message *</label>
+                        <textarea
+                          rows={4}
+                          value={contactForm.message}
+                          onChange={(e) => setContactForm({ ...contactForm, message: e.target.value })}
+                          placeholder="Tell me about your team or project requirements..."
+                          className={`w-full px-3.5 py-2.5 rounded-lg bg-[#070b14] border text-sm text-white placeholder-gray-500 focus:outline-none ${
+                            formErrors.message ? 'border-red-500' : 'border-white/10 focus:border-blue-500'
+                          }`}
+                        />
+                        {formErrors.message && <p className="text-[11px] text-red-400 mt-1">{formErrors.message}</p>}
+                      </div>
+
+                      <div className="flex flex-col sm:flex-row gap-3 pt-1">
+                        <button
+                          type="submit"
+                          disabled={submitting}
+                          className="flex-1 inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 hover:from-blue-500 hover:to-violet-500 text-white font-semibold text-sm shadow-lg shadow-blue-600/25 active:scale-[0.99] transition-all disabled:opacity-50"
+                        >
+                          {submitting ? 'Opening Mail Client...' : 'Send via Email Client ↵'}
+                        </button>
+                        <button
+                          type="button"
+                          onClick={copyMessageToClipboard}
+                          className="px-4 py-3 rounded-xl bg-white/5 hover:bg-white/10 text-gray-300 hover:text-white font-medium text-xs border border-white/10 transition-colors"
+                        >
+                          {copiedMessage ? 'Message Copied ✓' : 'Copy Message'}
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </main>
+
+          {/* FOOTER */}
+          <footer className="border-t border-white/10 bg-[#060911] text-gray-400 py-12 text-xs">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-white/5">
+                <div className="flex flex-col items-center md:items-start space-y-1">
+                  <div className="flex items-center gap-2">
+                    <div className="w-7 h-7 rounded-lg bg-gradient-to-tr from-blue-600 to-violet-600 flex items-center justify-center text-white font-bold text-xs">
+                      DK
+                    </div>
+                    <span className="text-sm font-bold text-white tracking-tight">{personal.name}</span>
+                  </div>
+                  <p className="text-gray-400 text-xs">
+                    Software Developer | AI/ML Engineer · B.Tech CSE (2023–Present)
+                  </p>
+                </div>
+
+                <div className="flex flex-wrap justify-center gap-4 text-xs">
+                  {['home', 'projects', 'skills', 'about', 'education', 'contact'].map((s) => (
+                    <button key={s} onClick={() => scrollTo(s)} className="hover:text-blue-400 capitalize transition-colors">
+                      {s}
+                    </button>
+                  ))}
+                </div>
+
+                <button
+                  onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-gray-300 hover:text-white border border-white/10 transition-colors"
+                >
+                  <span>Back to top</span>
+                  <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <polyline points="18 15 12 9 6 15" />
+                  </svg>
+                </button>
+              </div>
+
+              <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 text-[11px] text-gray-500">
+                <div>© {new Date().getFullYear()} {personal.name}. Verified engineering portfolio & project rights reserved.</div>
+                <div className="flex items-center gap-4">
+                  <a href={`mailto:${personal.email}`} className="hover:text-gray-300">{personal.email}</a>
+                  <span>·</span>
+                  <span>{personal.location}</span>
+                </div>
+              </div>
+            </div>
+          </footer>
+        </div>
+      );
+    }
+
+    // Mount the Application
+    ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+  </script>
+</body>
+</html>
